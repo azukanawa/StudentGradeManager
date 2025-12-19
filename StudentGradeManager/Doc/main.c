@@ -9,7 +9,7 @@ int class_num;                   // 班级数量
 int main() {
   TableScore tablescore;
   char filename[100];
-
+  printf("请输入文件名（含拓展名）\n");
   fgets(filename, sizeof(filename), stdin);
   filename[strcspn(filename, "\n")] = '\0';
 
@@ -19,6 +19,7 @@ int main() {
 
   output(&tablescore);
 
+  printf("按空格结束程序");
   getchar();
   return 0;
 }
