@@ -1,0 +1,3 @@
+D:/StudentGradeManagerRrpository/StudentGradeManager/build/CMakeFiles/StudentGradeManager.dir
+D:/StudentGradeManagerRrpository/StudentGradeManager/build/CMakeFiles/edit_cache.dir
+D:/StudentGradeManagerRrpository/StudentGradeManager/build/CMakeFiles/rebuild_cache.dir

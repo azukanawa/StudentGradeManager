@@ -1,23 +1,24 @@
 #include <stdio.h>
 #include <string.h>
+
 #include "../Lib/IO.h"
 #include "../Lib/function.h"
 
-ClassInfo classinfo[MAX_CLASS]; // å­˜å‚¨ä¸€å®šæ•°é‡çš„è¡Œæ”¿ç­ä¿¡æ¯
-int class_num;                  // ç­çº§æ•°é‡
-int main()
-{
-    TableScore tablescore;
-    char filename[100];
+ClassInfo classinfo[MAX_CLASS];  // ´æ´¢Ò»¶¨ÊıÁ¿µÄĞĞÕş°àĞÅÏ¢
+int class_num;                   // °à¼¶ÊıÁ¿
+int main() {
+  TableScore tablescore;
+  char filename[100];
 
-    fgets(filename, sizeof(filename), stdin);
-    filename[strcspn(filename, "\n")] = '\0';
+  fgets(filename, sizeof(filename), stdin);
+  filename[strcspn(filename, "\n")] = '\0';
 
-    ReadStudentInfo(filename, &tablescore);
+  ReadStudentInfo(filename, &tablescore);
 
-    Count(&tablescore);
+  Count(&tablescore);
 
-    output(&tablescore);
+  output(&tablescore);
 
-    return 0;
+  getchar();
+  return 0;
 }

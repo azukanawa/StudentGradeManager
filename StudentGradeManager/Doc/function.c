@@ -1,64 +1,65 @@
-#include "../Lib/Student.h"
 #include <stdio.h>
-extern ClassInfo classinfo[MAX_CLASS];  // å­˜å‚¨ä¸€å®šæ•°é‡çš„è¡Œæ”¿ç­ä¿¡æ¯
-extern int class_num;                   // ç­çº§æ•°é‡
-void Count(struct TableScore *pTableSc) // ç»Ÿè®¡å„ä¸ªè¡Œæ”¿ç­æ•°æ®
+
+#include "../Lib/Student.h"
+extern ClassInfo classinfo[MAX_CLASS];   // ´æ´¢Ò»¶¨ÊıÁ¿µÄĞĞÕş°àĞÅÏ¢
+extern int class_num;                    // °à¼¶ÊıÁ¿
+void Count(struct TableScore* pTableSc)  // Í³¼Æ¸÷¸öĞĞÕş°àÊı¾İ
 {
+  if (pTableSc == NULL ||
+      pTableSc->student_count == 0)  // Èô¿ÕÖ¸Õë»òÑ§ÉúÊıÁ¿Îª0
+  {
+    printf("error!¸ÃÎÄ¼ş²»´æÔÚ»òÆäÄÚÈİÎª¿Õ\n");
+    return;
+  }
 
-    if (pTableSc == NULL || pTableSc->student_count == 0) // è‹¥ç©ºæŒ‡é’ˆæˆ–å­¦ç”Ÿæ•°é‡ä¸º0
+  ClassInfo* ClassP = classinfo;  // ¼ÇÂ¼µ±Ç°ÊÇÔÚÍ³¼ÆÄÄ¸ö°àµÄĞÅÏ¢
+
+  int index = 0;   // Ë÷ÒıÒ»ºÅ
+  int index1 = 0;  // Ë÷Òı¶şºÅ
+  int found = 0;   // ¸Ã°à¼¶ÊÇ·ñ±»¼ÇÂ¼¹ı
+
+  Student* studentP =
+      &(pTableSc->students[0]);                // ¼ÇÂ¼µ±Ç°ÊÇÔÚÍ³¼ÆÄÄ¸öÑ§ÉúµÄĞÅÏ¢
+  for (index = 0; index < MAX_CLASS; index++)  // ³õÊ¼»¯
+  {
+    (ClassP + index)->ave_score = 0;
+    (ClassP + index)->class_NO[0] = '\0';
+    (ClassP + index)->score_sum = 0;
+    (ClassP + index)->student_num = 0;
+  }
+  class_num = 0;
+
+  for (index = 0; index < pTableSc->student_count; index++)  // Ã¿Ò»¸öÑ§Éú
+  {
+    char tem_class_NO[7] = "\0";  // ÁÙÊ±°àºÅ
+    CLASS_CALCULATE((studentP + index)->student_NO, tem_class_NO);
+    for (index1 = 0; index1 < class_num; index1++)  // ÅĞ¶Ï°àÃûÊÇ·ñ±»¼ÇÂ¼¹ı
     {
-        printf("error!è¯¥æ–‡ä»¶ä¸å­˜åœ¨æˆ–å…¶å†…å®¹ä¸ºç©º\n");
-        return;
+      if (strcmp(tem_class_NO, classinfo[index1].class_NO) == 0)  // ±»¼ÇÂ¼¹ı
+      {
+        classinfo[index1].student_num++;
+        classinfo[index1].score_sum += (studentP + index)->total_score;
+        found = 1;
+        break;
+      }
     }
-
-    ClassInfo *ClassP = classinfo; // è®°å½•å½“å‰æ˜¯åœ¨ç»Ÿè®¡å“ªä¸ªç­çš„ä¿¡æ¯
-
-    int index = 0;  // ç´¢å¼•ä¸€å·
-    int index1 = 0; // ç´¢å¼•äºŒå·
-    int found = 0;  // è¯¥ç­çº§æ˜¯å¦è¢«è®°å½•è¿‡
-
-    Student *studentP = &(pTableSc->students[0]); // è®°å½•å½“å‰æ˜¯åœ¨ç»Ÿè®¡å“ªä¸ªå­¦ç”Ÿçš„ä¿¡æ¯
-    for (index = 0; index < MAX_CLASS; index++)   // åˆå§‹åŒ–
-    {
-        (ClassP + index)->ave_score = 0;
-        (ClassP + index)->class_NO[0] = '\0';
-        (ClassP + index)->score_sum = 0;
-        (ClassP + index)->student_num = 0;
+    if (found == 1) {
+      found = 0;
+      continue;
     }
-    class_num = 0;
-
-    for (index = 0; index < pTableSc->student_count; index++) // æ¯ä¸€ä¸ªå­¦ç”Ÿ
-    {
-        char tem_class_NO[7] = "\0"; // ä¸´æ—¶ç­å·
-        CLASS_CALCULATE((studentP + index)->student_NO, tem_class_NO);
-        for (index1 = 0; index1 < class_num; index1++) // åˆ¤æ–­ç­åæ˜¯å¦è¢«è®°å½•è¿‡
-        {
-            if (strcmp(tem_class_NO, classinfo[index1].class_NO) == 0) // è¢«è®°å½•è¿‡
-            {
-                classinfo[index1].student_num++;
-                classinfo[index1].score_sum += (studentP + index)->total_score;
-                found = 1;
-                break;
-            }
-        }
-        if (found == 1)
-        {
-            found = 0;
-            continue;
-        }
-        strcpy(classinfo[class_num].class_NO, tem_class_NO);
-        classinfo[class_num].student_num++;
-        classinfo[class_num].score_sum += (studentP + index)->total_score;
-        class_num++;
-        if (class_num > MAX_CLASS)
-        {
-            printf("error!è¯¥æ–‡ä»¶ä¸­è¡Œæ”¿ç­æ•°é‡è¶…è¿‡20\n");
-            return;
-        }
+    strcpy(classinfo[class_num].class_NO, tem_class_NO);
+    classinfo[class_num].student_num++;
+    classinfo[class_num].score_sum += (studentP + index)->total_score;
+    class_num++;
+    if (class_num > MAX_CLASS) {
+      printf("error!¸ÃÎÄ¼şÖĞĞĞÕş°àÊıÁ¿³¬¹ı20\n");
+      return;
     }
+  }
 
-    for (index = 0; index < class_num; index++) // ç®—å¹³å‡åˆ†
-    {
-        classinfo[index].ave_score = classinfo[index].score_sum * 1.0 / classinfo[index].student_num;
-    }
+  for (index = 0; index < class_num; index++)  // ËãÆ½¾ù·Ö
+  {
+    classinfo[index].ave_score =
+        classinfo[index].score_sum * 1.0 / classinfo[index].student_num;
+  }
 }

@@ -1,0 +1,20 @@
+[
+{
+  "directory": "D:/StudentGradeManagerRrpository/StudentGradeManager/build",
+  "command": "D:\\MinGW64\\bin\\gcc.exe  @CMakeFiles/StudentGradeManager.dir/includes_C.rsp -g -o CMakeFiles\\StudentGradeManager.dir\\main.c.obj -c D:\\StudentGradeManagerRrpository\\StudentGradeManager\\Doc\\main.c",
+  "file": "D:/StudentGradeManagerRrpository/StudentGradeManager/Doc/main.c",
+  "output": "CMakeFiles/StudentGradeManager.dir/main.c.obj"
+},
+{
+  "directory": "D:/StudentGradeManagerRrpository/StudentGradeManager/build",
+  "command": "D:\\MinGW64\\bin\\gcc.exe  @CMakeFiles/StudentGradeManager.dir/includes_C.rsp -g -o CMakeFiles\\StudentGradeManager.dir\\IO.c.obj -c D:\\StudentGradeManagerRrpository\\StudentGradeManager\\Doc\\IO.c",
+  "file": "D:/StudentGradeManagerRrpository/StudentGradeManager/Doc/IO.c",
+  "output": "CMakeFiles/StudentGradeManager.dir/IO.c.obj"
+},
+{
+  "directory": "D:/StudentGradeManagerRrpository/StudentGradeManager/build",
+  "command": "D:\\MinGW64\\bin\\gcc.exe  @CMakeFiles/StudentGradeManager.dir/includes_C.rsp -g -o CMakeFiles\\StudentGradeManager.dir\\function.c.obj -c D:\\StudentGradeManagerRrpository\\StudentGradeManager\\Doc\\function.c",
+  "file": "D:/StudentGradeManagerRrpository/StudentGradeManager/Doc/function.c",
+  "output": "CMakeFiles/StudentGradeManager.dir/function.c.obj"
+}
+]

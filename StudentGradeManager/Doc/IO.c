@@ -1,69 +1,89 @@
 #include <stdio.h>
+
 #include "../Lib/Student.h"
-extern ClassInfo classinfo[MAX_CLASS];                                 // å­˜å‚¨ä¸€å®šæ•°é‡çš„è¡Œæ”¿ç­ä¿¡æ¯
-extern int class_num;                                                  // ç­çº§æ•°é‡
-int ReadStudentInfo(const char *filename, struct TableScore *pTableSc) // const char* filenameï¼šæ•™å­¦ç­æ•°æ®æ–‡ä»¶åï¼›struct TableScore * pTableScï¼šå¾…å»ºç«‹çš„é¡ºåºè¡¨ã€‚
+extern ClassInfo classinfo[MAX_CLASS];  // ´æ´¢Ò»¶¨ÊıÁ¿µÄĞĞÕş°àĞÅÏ¢
+extern int class_num;                   // °à¼¶ÊıÁ¿
+int ReadStudentInfo(
+    const char* filename,
+    struct TableScore*
+        pTableSc)  // const char* filename£º½ÌÑ§°àÊı¾İÎÄ¼şÃû£»struct TableScore
+                   // * pTableSc£º´ı½¨Á¢µÄË³Ğò±í¡£
 {
-    if (filename == NULL || pTableSc == NULL) // åˆ¤æ–­æŒ‡é’ˆæ˜¯å¦ä¸ºç©ºæŒ‡é’ˆ
+  if (filename == NULL || pTableSc == NULL)  // ÅĞ¶ÏÖ¸ÕëÊÇ·ñÎª¿ÕÖ¸Õë
+  {
+    return FALSE;
+  }
+
+  // ´ò¿ªÎÄ¼ş
+  FILE* fp = fopen(filename, "r");  // ¶ÁÎÄ¼ş
+  if (fp == NULL)                   // Èç¹ûÎÄ¼ş´ò¿ªÊ§°Ü
+  {
+    perror("ÎÄ¼ş´ò¿ªÊ§°Ü\n");
+    return FALSE;
+  }
+
+  pTableSc->student_count = 0;  // ³õÊ¼»¯Ñ§ÉúÊıÁ¿
+
+  Student tem_stu;  // ×÷ÎªÁÙÊ±µÄ±äÁ¿´æ´¢Ñ§ÉúÊı¾İ
+
+  while (fscanf(fp, "%s %s %d %d %d %d", tem_stu.name, tem_stu.student_NO,
+                &tem_stu.exp_score, &tem_stu.half_term_score,
+                &tem_stu.final_score,
+                &tem_stu.program_score) == 6)  // ±£Ö¤¶ÁÈëÁù¸öÊı¾İ
+  {
+    tem_stu.total_score =
+        (int)(0.2 * tem_stu.exp_score + 0.3 * tem_stu.half_term_score +
+              0.3 * tem_stu.final_score + 0.2 * tem_stu.program_score +
+              0.5);  // ¼ÆËã×ÜÆÀ³É¼¨
+
+    if (pTableSc->student_count >= 50)  // Èç¹ûÑ§ÉúÊı´óÓÚÊı×éÉÏÏŞ
     {
-        return FALSE;
+      printf("error:Ñ§ÉúÊı³¬¹ı50\n");
+      break;
     }
+    pTableSc->students[pTableSc->student_count++] =
+        tem_stu;  // ½«Ñ§ÉúĞÅÏ¢¼ÆÈëË³Ğò±íÖĞ
+  }
+  fclose(fp);  // ¹Ø±ÕÎÄ¼ş
+  fp = NULL;   // ±ÜÃâÒ°Ö¸Õë
 
-    // æ‰“å¼€æ–‡ä»¶
-    FILE *fp = fopen(filename, "r"); // è¯»æ–‡ä»¶
-    if (fp == NULL)                  // å¦‚æœæ–‡ä»¶æ‰“å¼€å¤±è´¥
-    {
-        perror("æ–‡ä»¶æ‰“å¼€å¤±è´¥\n");
-        return FALSE;
-    }
+  if (pTableSc->student_count == 0)  // Èç¹ûÑ§ÉúÊıÎª0
+  {
+    printf("ÎŞÓĞĞ§Êı¾İ\n");
+    return FALSE;
+  }
 
-    pTableSc->student_count = 0; // åˆå§‹åŒ–å­¦ç”Ÿæ•°é‡
-
-    Student tem_stu; // ä½œä¸ºä¸´æ—¶çš„å˜é‡å­˜å‚¨å­¦ç”Ÿæ•°æ®
-
-    while (fscanf(fp, "%s %s %d %d %d %d", tem_stu.name, tem_stu.student_NO, &tem_stu.exp_score, &tem_stu.half_term_score, &tem_stu.final_score, &tem_stu.program_score) == 6) // ä¿è¯è¯»å…¥å…­ä¸ªæ•°æ®
-    {
-        tem_stu.total_score = (int)(0.2 * tem_stu.exp_score + 0.3 * tem_stu.half_term_score + 0.3 * tem_stu.final_score + 0.2 * tem_stu.program_score + 0.5); // è®¡ç®—æ€»è¯„æˆç»©
-
-        if (pTableSc->student_count >= 50) // å¦‚æœå­¦ç”Ÿæ•°å¤§äºæ•°ç»„ä¸Šé™
-        {
-            printf("error:å­¦ç”Ÿæ•°è¶…è¿‡50\n");
-            break;
-        }
-        pTableSc->students[pTableSc->student_count++] = tem_stu; // å°†å­¦ç”Ÿä¿¡æ¯è®¡å…¥é¡ºåºè¡¨ä¸­
-    }
-    fclose(fp); // å…³é—­æ–‡ä»¶
-    fp = NULL;  // é¿å…é‡æŒ‡é’ˆ
-
-    if (pTableSc->student_count == 0) // å¦‚æœå­¦ç”Ÿæ•°ä¸º0
-    {
-        printf("æ— æœ‰æ•ˆæ•°æ®\n");
-        return FALSE;
-    }
-
-    printf("æ–‡ä»¶è¾“å…¥æˆåŠŸï¼Œå·²æˆåŠŸè¯»å–%dåå­¦ç”Ÿæ•°æ®\n", pTableSc->student_count);
-    return TRUE;
+  printf("ÎÄ¼şÊäÈë³É¹¦£¬ÒÑ³É¹¦¶ÁÈ¡%dÃûÑ§ÉúÊı¾İ\n", pTableSc->student_count);
+  return TRUE;
 }
 
-void output(struct TableScore *pTableSc) // è¾“å‡ºç»Ÿè®¡ä¿¡æ¯
+void output(struct TableScore* pTableSc)  // Êä³öÍ³¼ÆĞÅÏ¢
 {
-    printf("å­¦ç”Ÿä¿¡æ¯ï¼š\n");
-    printf("-----------------------------------------------------\n");
-    printf("åº å·  å§“ å       å­¦ å·    ç­ çº§   å®éªŒæˆç»©  åŠæœŸæˆç»©  æœŸæœ«æˆç»©  é¡¹ç›®æˆç»©  æ€»æˆç»©\n");
-    int index = 0;
-    char class_NO[7] = {'\0'};
-    for (index = 0; index < pTableSc->student_count; index++)
-    {
-        CLASS_CALCULATE(pTableSc->students[index].student_NO, class_NO);
-        printf("%3d    %s\t %s  %s    %3d       %3d       %3d       %3d      %3d\n", index + 1, pTableSc->students[index].name, pTableSc->students[index].student_NO, class_NO, pTableSc->students[index].exp_score, pTableSc->students[index].half_term_score, pTableSc->students[index].final_score, pTableSc->students[index].program_score, pTableSc->students[index].total_score);
-    }
+  printf("Ñ§ÉúĞÅÏ¢£º\n");
+  printf("-----------------------------------------------------\n");
+  printf(
+      "Ğò ºÅ  ĞÕ Ãû       Ñ§ ºÅ    °à ¼¶   ÊµÑé³É¼¨  °ëÆÚ³É¼¨  ÆÚÄ©³É¼¨  "
+      "ÏîÄ¿³É¼¨  ×Ü³É¼¨\n");
+  int index = 0;
+  char class_NO[7] = {'\0'};
+  for (index = 0; index < pTableSc->student_count; index++) {
+    CLASS_CALCULATE(pTableSc->students[index].student_NO, class_NO);
+    printf("%3d    %s\t %s  %s    %3d       %3d       %3d       %3d      %3d\n",
+           index + 1, pTableSc->students[index].name,
+           pTableSc->students[index].student_NO, class_NO,
+           pTableSc->students[index].exp_score,
+           pTableSc->students[index].half_term_score,
+           pTableSc->students[index].final_score,
+           pTableSc->students[index].program_score,
+           pTableSc->students[index].total_score);
+  }
 
-    printf("\n");
-    printf("ç»Ÿè®¡ä¿¡æ¯ï¼š\n");
-    printf("-----------------------------------------------------\n");
-    printf("åº å·  ç­ å·   å­¦ç”Ÿäººæ•°  å¹³å‡æˆç»©\n");
-    for (index = 0; index < class_num; index++)
-    {
-        printf("%3d    %s  %4d       %.1f\n", index + 1, classinfo[index].class_NO, classinfo[index].student_num, classinfo[index].ave_score);
-    }
+  printf("\n");
+  printf("Í³¼ÆĞÅÏ¢£º\n");
+  printf("-----------------------------------------------------\n");
+  printf("Ğò ºÅ  °à ºÅ   Ñ§ÉúÈËÊı  Æ½¾ù³É¼¨\n");
+  for (index = 0; index < class_num; index++) {
+    printf("%3d    %s  %4d       %.1f\n", index + 1, classinfo[index].class_NO,
+           classinfo[index].student_num, classinfo[index].ave_score);
+  }
 }

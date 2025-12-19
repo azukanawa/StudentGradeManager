@@ -1,3 +1,3 @@
 #include "../Lib/Student.h"
 
-void Count(struct TableScore *pTableSc); // ç»Ÿè®¡å„ä¸ªè¡Œæ”¿ç­æ•°æ®
+void Count(struct TableScore* pTableSc);  // Í³¼Æ¸÷¸öĞĞÕş°àÊı¾İ

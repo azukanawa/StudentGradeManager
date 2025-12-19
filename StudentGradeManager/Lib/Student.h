@@ -5,38 +5,37 @@
 #define TRUE 1
 #define FALSE 0
 #define CLASS_CALCULATE(student_NO, class_NO) \
-    do                                        \
-    {                                         \
-        strncpy(class_NO, student_NO, 6);     \
-        class_NO[6] = '\0';                   \
-    } while (FALSE)
+  do {                                        \
+    strncpy(class_NO, student_NO, 6);         \
+    class_NO[6] = '\0';                       \
+  } while (FALSE)
 #define MAX_CLASS 20
 
-typedef struct Student // å­¦ç”Ÿä¿¡æ¯
+typedef struct Student  // Ñ§ÉúĞÅÏ¢
 {
-    char name[20];       // å§“å
-    char student_NO[20]; // å­¦å·
-    int exp_score;       // å®éªŒæˆç»©
-    int half_term_score; // åŠæœŸæˆç»©
-    int final_score;     // æœŸæœ«æˆç»©
-    int program_score;   // é¡¹ç›®æˆç»©
-    int total_score;     // æ€»è¯„æˆç»©
+  char name[20];        // ĞÕÃû
+  char student_NO[20];  // Ñ§ºÅ
+  int exp_score;        // ÊµÑé³É¼¨
+  int half_term_score;  // °ëÆÚ³É¼¨
+  int final_score;      // ÆÚÄ©³É¼¨
+  int program_score;    // ÏîÄ¿³É¼¨
+  int total_score;      // ×ÜÆÀ³É¼¨
 } Student;
 
-typedef struct TableScore // æˆç»©è¡¨
+typedef struct TableScore  // ³É¼¨±í
 {
-    Student students[50];
-    int student_count;     // å­¦ç”Ÿæ•°é‡
-    char teacher_name[50]; // æ•™å­¦ç­æ•™å¸ˆå§“å
-    char class_NO[20];     // è¡Œæ”¿ç­ç­å·
+  Student students[50];
+  int student_count;      // Ñ§ÉúÊıÁ¿
+  char teacher_name[50];  // ½ÌÑ§°à½ÌÊ¦ĞÕÃû
+  char class_NO[20];      // ĞĞÕş°à°àºÅ
 } TableScore;
 
-typedef struct ClassInfo // è¡Œæ”¿ç­ç»Ÿè®¡ä¿¡æ¯
+typedef struct ClassInfo  // ĞĞÕş°àÍ³¼ÆĞÅÏ¢
 {
-    char class_NO[20]; // è¡Œæ”¿ç­ç­å·
-    int student_num;   // å­¦ç”Ÿæ€»äººæ•°
-    int score_sum;     // ç­çº§åˆ†æ•°æ€»å’Œ
-    float ave_score;   // ç­çº§å¹³å‡åˆ†
+  char class_NO[20];  // ĞĞÕş°à°àºÅ
+  int student_num;    // Ñ§Éú×ÜÈËÊı
+  int score_sum;      // °à¼¶·ÖÊı×ÜºÍ
+  float ave_score;    // °à¼¶Æ½¾ù·Ö
 } ClassInfo;
 
 #endif

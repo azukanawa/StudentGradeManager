@@ -1,5 +1,6 @@
 #include "../Lib/Student.h"
 
-int ReadStudentInfo(const char *filename, struct TableScore *pTableSc); // 璇诲彇瀛︾敓淇℃伅
+int ReadStudentInfo(const char* filename,
+                    struct TableScore* pTableSc);  // 读取学生信息
 
-void output(struct TableScore *pTableSc); // 杈撳嚭缁熻淇℃伅
+void output(struct TableScore* pTableSc);  // 输出统计信息
