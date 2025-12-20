@@ -36,9 +36,10 @@ int ReadStudentInfo(
               0.3 * tem_stu.final_score + 0.2 * tem_stu.program_score +
               0.5);  // 计算总评成绩
 
-    if (pTableSc->student_count >= 50)  // 如果学生数大于数组上限
+    if (pTableSc->student_count >= MAX_STUDENT)  // 如果学生数大于数组上限
     {
-      printf("error:学生数超过50\n");
+      printf("error:学生数超过%d，只录入前%d个学生数据\n", MAX_STUDENT,
+             MAX_STUDENT);
       break;
     }
     pTableSc->students[pTableSc->student_count++] =

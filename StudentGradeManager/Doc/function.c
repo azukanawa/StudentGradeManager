@@ -47,14 +47,15 @@ void Count(struct TableScore* pTableSc)  // 统计各个行政班数据
       found = 0;
       continue;
     }
+    if (class_num >= MAX_CLASS) {
+      printf("warning!该文件中行政班数量超过最大值%d，将只记录前%d个班的数据\n",
+             MAX_CLASS, MAX_CLASS);
+      break;
+    }
     strcpy(classinfo[class_num].class_NO, tem_class_NO);
     classinfo[class_num].student_num++;
     classinfo[class_num].score_sum += (studentP + index)->total_score;
     class_num++;
-    if (class_num > MAX_CLASS) {
-      printf("error!该文件中行政班数量超过20\n");
-      return;
-    }
   }
 
   for (index = 0; index < class_num; index++)  // 算平均分

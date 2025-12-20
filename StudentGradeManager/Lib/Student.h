@@ -8,8 +8,9 @@
   do {                                        \
     strncpy(class_NO, student_NO, 6);         \
     class_NO[6] = '\0';                       \
-  } while (FALSE)
-#define MAX_CLASS 20
+  } while (FALSE)  // 取学号前六位作为班号
+#define MAX_CLASS 20    // 教学班里最大的行政班个数
+#define MAX_STUDENT 50  // 最大学生数
 
 typedef struct Student  // 学生信息
 {
@@ -24,7 +25,7 @@ typedef struct Student  // 学生信息
 
 typedef struct TableScore  // 成绩表
 {
-  Student students[50];
+  Student students[MAX_STUDENT];
   int student_count;      // 学生数量
   char teacher_name[50];  // 教学班教师姓名
   char class_NO[20];      // 行政班班号

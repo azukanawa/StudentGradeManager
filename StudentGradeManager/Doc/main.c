@@ -13,13 +13,13 @@ int main() {
   fgets(filename, sizeof(filename), stdin);
   filename[strcspn(filename, "\n")] = '\0';
 
-  ReadStudentInfo(filename, &tablescore);
+  if (ReadStudentInfo(filename, &tablescore) != 0) {
+    Count(&tablescore);
 
-  Count(&tablescore);
+    output(&tablescore);
+  }
 
-  output(&tablescore);
-
-  printf("按空格结束程序");
+  printf("按回车结束程序");
   getchar();
   return 0;
 }
