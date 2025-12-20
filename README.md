@@ -1,6 +1,6 @@
 # 学生管理系统
 # 如何运行它
-1. 双击在StudentGradeManger文件夹中
+1. 双击StudentGradeManger文件夹
 2. 双击build文件夹
 3. 双击Doc文件夹
 4. 找到StudentGradeManager.exe程序，双击运行
