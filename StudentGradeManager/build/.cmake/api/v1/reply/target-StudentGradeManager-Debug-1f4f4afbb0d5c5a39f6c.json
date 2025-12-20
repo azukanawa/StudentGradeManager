@@ -2,10 +2,10 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "StudentGradeManager.exe"
+			"path" : "Doc/StudentGradeManager.exe"
 		},
 		{
-			"path" : "StudentGradeManager.pdb"
+			"path" : "Doc/StudentGradeManager.pdb"
 		}
 	],
 	"backtrace" : 1,
@@ -18,7 +18,7 @@
 		],
 		"files" : 
 		[
-			"CMakeLists.txt"
+			"Doc/CMakeLists.txt"
 		],
 		"nodes" : 
 		[
@@ -28,13 +28,13 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 4,
+				"line" : 2,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 3,
+				"line" : 1,
 				"parent" : 0
 			}
 		]
@@ -57,7 +57,7 @@
 			[
 				{
 					"backtrace" : 2,
-					"path" : "D:/StudentGradeManagerRrpository/StudentGradeManager/Doc/../Include"
+					"path" : "D:/StudentGradeManagerRrpository/StudentGradeManager/Doc/../Lib"
 				}
 			],
 			"language" : "C",
@@ -69,7 +69,7 @@
 			]
 		}
 	],
-	"id" : "StudentGradeManager::@6890427a1f51a3e7e1df",
+	"id" : "StudentGradeManager::@a6d4dd9690d762d99269",
 	"link" : 
 	{
 		"commandFragments" : 
@@ -89,8 +89,8 @@
 	"nameOnDisk" : "StudentGradeManager.exe",
 	"paths" : 
 	{
-		"build" : ".",
-		"source" : "."
+		"build" : "Doc",
+		"source" : "Doc"
 	},
 	"sourceGroups" : 
 	[
@@ -109,19 +109,19 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "main.c",
+			"path" : "Doc/main.c",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "IO.c",
+			"path" : "Doc/IO.c",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "function.c",
+			"path" : "Doc/function.c",
 			"sourceGroupIndex" : 0
 		}
 	],

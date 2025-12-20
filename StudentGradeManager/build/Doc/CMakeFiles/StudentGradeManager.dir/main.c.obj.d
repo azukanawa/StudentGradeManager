@@ -1,4 +1,4 @@
-CMakeFiles/StudentGradeManager.dir/main.c.obj: \
+Doc/CMakeFiles/StudentGradeManager.dir/main.c.obj: \
  D:\StudentGradeManagerRrpository\StudentGradeManager\Doc\main.c \
  D:/MinGW64/x86_64-w64-mingw32/include/stdio.h \
  D:/MinGW64/x86_64-w64-mingw32/include/corecrt_stdio_config.h \

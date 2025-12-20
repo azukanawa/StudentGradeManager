@@ -1,5 +1,5 @@
-CMakeFiles/StudentGradeManager.dir/function.c.obj: \
- D:\StudentGradeManagerRrpository\StudentGradeManager\Doc\function.c \
+Doc/CMakeFiles/StudentGradeManager.dir/IO.c.obj: \
+ D:\StudentGradeManagerRrpository\StudentGradeManager\Doc\IO.c \
  D:/MinGW64/x86_64-w64-mingw32/include/stdio.h \
  D:/MinGW64/x86_64-w64-mingw32/include/corecrt_stdio_config.h \
  D:/MinGW64/x86_64-w64-mingw32/include/corecrt.h \

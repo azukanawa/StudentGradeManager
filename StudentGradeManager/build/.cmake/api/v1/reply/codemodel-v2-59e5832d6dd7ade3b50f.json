@@ -7,13 +7,28 @@
 			[
 				{
 					"build" : ".",
+					"childIndexes" : 
+					[
+						1
+					],
 					"jsonFile" : "directory-.-Debug-f6f22219c74102c3da70.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.10"
 					},
 					"projectIndex" : 0,
-					"source" : ".",
+					"source" : "."
+				},
+				{
+					"build" : "Doc",
+					"jsonFile" : "directory-Doc-Debug-1356cd3c6901ec69e63d.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "Doc",
 					"targetIndexes" : 
 					[
 						0
@@ -26,7 +41,8 @@
 				{
 					"directoryIndexes" : 
 					[
-						0
+						0,
+						1
 					],
 					"name" : "StudentGradeManager",
 					"targetIndexes" : 
@@ -38,9 +54,9 @@
 			"targets" : 
 			[
 				{
-					"directoryIndex" : 0,
-					"id" : "StudentGradeManager::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-StudentGradeManager-Debug-6f88aac6ef5341658fb5.json",
+					"directoryIndex" : 1,
+					"id" : "StudentGradeManager::@a6d4dd9690d762d99269",
+					"jsonFile" : "target-StudentGradeManager-Debug-1f4f4afbb0d5c5a39f6c.json",
 					"name" : "StudentGradeManager",
 					"projectIndex" : 0
 				}
@@ -51,7 +67,7 @@
 	"paths" : 
 	{
 		"build" : "D:/StudentGradeManagerRrpository/StudentGradeManager/build",
-		"source" : "D:/StudentGradeManagerRrpository/StudentGradeManager/Doc"
+		"source" : "D:/StudentGradeManagerRrpository/StudentGradeManager"
 	},
 	"version" : 
 	{

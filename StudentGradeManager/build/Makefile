@@ -56,7 +56,7 @@ RM = D:\CMake\bin\cmake.exe -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = D:\StudentGradeManagerRrpository\StudentGradeManager\Doc
+CMAKE_SOURCE_DIR = D:\StudentGradeManagerRrpository\StudentGradeManager
 
 # The top-level build directory on which CMake was run.
 CMAKE_BINARY_DIR = D:\StudentGradeManagerRrpository\StudentGradeManager\build
@@ -125,80 +125,8 @@ StudentGradeManager: cmake_check_build_system
 
 # fast build rule for target.
 StudentGradeManager/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\StudentGradeManager.dir\build.make CMakeFiles/StudentGradeManager.dir/build
+	$(MAKE) $(MAKESILENT) -f Doc\CMakeFiles\StudentGradeManager.dir\build.make Doc/CMakeFiles/StudentGradeManager.dir/build
 .PHONY : StudentGradeManager/fast
-
-IO.obj: IO.c.obj
-.PHONY : IO.obj
-
-# target to build an object file
-IO.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\StudentGradeManager.dir\build.make CMakeFiles/StudentGradeManager.dir/IO.c.obj
-.PHONY : IO.c.obj
-
-IO.i: IO.c.i
-.PHONY : IO.i
-
-# target to preprocess a source file
-IO.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\StudentGradeManager.dir\build.make CMakeFiles/StudentGradeManager.dir/IO.c.i
-.PHONY : IO.c.i
-
-IO.s: IO.c.s
-.PHONY : IO.s
-
-# target to generate assembly for a file
-IO.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\StudentGradeManager.dir\build.make CMakeFiles/StudentGradeManager.dir/IO.c.s
-.PHONY : IO.c.s
-
-function.obj: function.c.obj
-.PHONY : function.obj
-
-# target to build an object file
-function.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\StudentGradeManager.dir\build.make CMakeFiles/StudentGradeManager.dir/function.c.obj
-.PHONY : function.c.obj
-
-function.i: function.c.i
-.PHONY : function.i
-
-# target to preprocess a source file
-function.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\StudentGradeManager.dir\build.make CMakeFiles/StudentGradeManager.dir/function.c.i
-.PHONY : function.c.i
-
-function.s: function.c.s
-.PHONY : function.s
-
-# target to generate assembly for a file
-function.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\StudentGradeManager.dir\build.make CMakeFiles/StudentGradeManager.dir/function.c.s
-.PHONY : function.c.s
-
-main.obj: main.c.obj
-.PHONY : main.obj
-
-# target to build an object file
-main.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\StudentGradeManager.dir\build.make CMakeFiles/StudentGradeManager.dir/main.c.obj
-.PHONY : main.c.obj
-
-main.i: main.c.i
-.PHONY : main.i
-
-# target to preprocess a source file
-main.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\StudentGradeManager.dir\build.make CMakeFiles/StudentGradeManager.dir/main.c.i
-.PHONY : main.c.i
-
-main.s: main.c.s
-.PHONY : main.s
-
-# target to generate assembly for a file
-main.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\StudentGradeManager.dir\build.make CMakeFiles/StudentGradeManager.dir/main.c.s
-.PHONY : main.c.s
 
 # Help Target
 help:
@@ -209,15 +137,6 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... StudentGradeManager
-	@echo ... IO.obj
-	@echo ... IO.i
-	@echo ... IO.s
-	@echo ... function.obj
-	@echo ... function.i
-	@echo ... function.s
-	@echo ... main.obj
-	@echo ... main.i
-	@echo ... main.s
 .PHONY : help
 
 

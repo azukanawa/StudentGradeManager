@@ -1,7 +1,8 @@
 {
 	"InstallScripts" : 
 	[
-		"D:/StudentGradeManagerRrpository/StudentGradeManager/build/cmake_install.cmake"
+		"D:/StudentGradeManagerRrpository/StudentGradeManager/build/cmake_install.cmake",
+		"D:/StudentGradeManagerRrpository/StudentGradeManager/build/Doc/cmake_install.cmake"
 	],
 	"Parallel" : false
 }

@@ -1,6 +1,9 @@
 # 学生管理系统
 # 如何运行它
-双击在StudentGradeManger文件夹中的build文件夹中的StudentGradeManager.exe程序运行
+1. 双击在StudentGradeManger文件夹中
+2. 双击build文件夹
+3. 双击Doc文件夹
+4. 找到StudentGradeManager.exe程序，双击运行
 # 文件结构
 Doc文件夹主要用于存放 **.c** 后缀的文件， Lib文件夹则用于存放 **.h** 后缀的文件，build文件夹为CMake生成的构建文件，同时里面的**测试数据.txt**是用于输入数据的 
 
